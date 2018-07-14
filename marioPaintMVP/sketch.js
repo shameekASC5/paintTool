@@ -1,8 +1,3 @@
-/*
-Current problems with code:
-    When circle color changes so does button color. I think this is unavoidable without importing another p5 library.
-    Everything else is beautiful.
-*/
 var canvasWidth = window.innerWidth;
 var canvasHeight = window.innerHeight;
 var buttonWidth = 100;
