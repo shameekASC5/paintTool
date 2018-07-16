@@ -1,5 +1,5 @@
-var canvasWidth = window.innerWidth;
-var canvasHeight = window.innerHeight;
+var canvasWidth = 800; //Set to window.innerWidth and window.innerHeight for full screen
+var canvasHeight = 600; 
 var buttonWidth = 100;
 var buttonHeight = 55;
 var ballColor = 255;
@@ -11,7 +11,7 @@ var button4XPos = canvasWidth - (canvasWidth - (buttonWidth * 3 + 70));
 var buttonYPos = canvasHeight - (10 + buttonHeight);
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(canvasWidth, canvasHeight);
     background(225);
 }
 //Draws the buttons and accompanying text + controls color
