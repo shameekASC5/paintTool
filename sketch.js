@@ -12,40 +12,54 @@ var button5XPos = canvasWidth - (canvasWidth - (buttonWidth * 4 + 90)) + buttonS
 var buttonYPos = canvasHeight - (10 + buttonHeight);
 const colorArray = [255, 255, 255];
 var randomShape;
-// var rect;
+var x = 70;
+var y = 100;
+var z = 50;
 
 function setup() {
     let canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent("sketch-holder");
     background(225);
 }
-//Draws the buttons and accompanying text + controls color
-function draw() {
-    fill(ballColor1);
-//this gives the button 10 pixels of space away from the left edge & bottom of the canvas
+
+function buttons() {
+    // fill(r, g, b);
+    // newButton = rect(buttonPos, buttonYPos, buttonWidth, buttonHeight);
+    // return newButton;
+    fill(153, 186, 221);
     const button1 = rect(button1XPos, buttonYPos, buttonWidth, buttonHeight);
-    stroke(0);
-    text('Blue', button1XPos + 40, buttonYPos + 32);
-//this gives the button 20 pixels of separation from the previous button, and 10 pixels from the bottom of the canvas
+    fill(255, 183, 197);
     const button2 = rect(button2XPos, buttonYPos, buttonWidth, buttonHeight);
-    stroke(0);
-    text('Warm Pink', button2XPos + 20, buttonYPos + 32);
-//this gives the button 20 pixels of separation from the previous button, and 10 pixels from the bottom of the canvas
-    const button3 = rect(button3XPos, buttonYPos, buttonWidth, buttonHeight); 
-    stroke(0);
-    text('White', button3XPos + 35, buttonYPos + 32); 
-//this gives the button 20 pixels of separation from the previous button, and 10 pixels from the bottom of the canvas
-    const button4 = rect(button4XPos, buttonYPos, buttonWidth, buttonHeight); 
-    stroke(0);
-    text('Random Color', button4XPos + 15, buttonYPos + 32); 
-//this gives the button 20 pixels of separation from the previous button, and 10 pixels from the bottom of the canvas
-    const button5 = rect(button5XPos, buttonYPos, buttonWidth, buttonHeight); 
-    stroke(0);
-    text('Reset', button5XPos + 35, buttonYPos + 32); 
+    fill(255);
+    const button3 = rect(button3XPos, buttonYPos, buttonWidth, buttonHeight);
+    if (x < 255) {
+        x++;
+    } else if (x >= 255) {
+        x = x - 255;
+    }
+    if (y < 255) {
+        y++;
+    }else if ( y >= 255) {
+        y = y - 255;
+    }
+    if (z < 255) {
+        z++;
+    } else if (x >= 255) {
+        z = z - 225;
+    }
+    fill(x, y, z);
+        const button4 = rect(button4XPos, buttonYPos, buttonWidth, buttonHeight); 
+        fill(115);
+        const button5 = rect(button5XPos, buttonYPos, buttonWidth, buttonHeight);  
 }
+
+function draw() {
+    buttons();
+}
+
 //Draws the random ellipses/rects
 function mouseDragged() {
-    randomNum = random(0, 101);
+    randomNum = random(0, 60);
     fill(colorArray);
     ellipse(mouseX, mouseY, randomNum);
     //Random ellipse or rectangle
@@ -67,12 +81,12 @@ function mouseClicked() {
     let distanceFromButton5 = dist(mouseX, mouseY, button5XPos, buttonYPos);
     //let distanceFromButton6 = dist(mouseX, mouseY, button6XPos, buttonYPos);
     if (distanceFromButton1 <= buttonWidth && buttonYPos) {
-        colorArray.splice(0, 1, 153);
+        colorArray.splice(0, 1, 153); 
         colorArray.splice(1, 1, 186);
         colorArray.splice(2, 1, 221);
         
     } else if (distanceFromButton2 <= buttonWidth) {
-        colorArray.splice(0, 1, 255);
+        colorArray.splice(0, 1, 255); 
         colorArray.splice(1, 1, 183);
         colorArray.splice(2, 1, 197);
 
@@ -95,7 +109,6 @@ function mouseClicked() {
         colorArray.splice(0, 1, 255);
         colorArray.splice(1, 1, 255);
         colorArray.splice(2, 1, 255);
-        
     }  
   }
 
